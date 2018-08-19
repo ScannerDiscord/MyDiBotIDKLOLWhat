@@ -1,1 +1,1 @@
-worker : python EDGE.py 
+worker: python bot.py
