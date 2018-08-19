@@ -24,13 +24,13 @@ async def on_ready():
 @bot.event
 async def on_member_join(member):
     server = member.server
-    if server.id == "480248440148852757":
+    if server.id == "418001869781205002":
         if member.avatar_url:
             memberavatar = member.avatar_url
         else:
             memberavatar = member.default.avatar_url
         
-        channel = bot.get_channel("480248440677203969")
+        channel = bot.get_channel("418001869781205004")
         server = member.server
         msg = "**:tada: Welcome to {} {} , You are the {} User!**".format(member.server.name, member.mention, len(server.members))
         
@@ -51,13 +51,13 @@ async def uptime(ctx):
 @bot.command(pass_context=True)
 async def report(ctx, *args ):
     args = ' '.join(args)
-    if ctx.message.server.id == "480248440148852757":
+    if ctx.message.server.id == "418001869781205002":
         if ctx.message.author.avatar_url:
             avatar = ctx.message.author.avatar_url
         else:
             avatar = ctx.message.author.default.avatar_url
         
-        channel = bot.get_channel("480263377201922058")
+        channel = bot.get_channel("419143404631621652")
         await bot.send_message(ctx.message.author, "<:Pass:461924196390404106> | Your Report Was Sent to the Staff ! , Thanks For Reporting ")
         
         embed=discord.Embed(title="Information")
@@ -73,7 +73,7 @@ async def report(ctx, *args ):
 @bot.command(pass_context=True)
 async def suggest(ctx, *args ):
     Sargs = ' '.join(args)
-    if ctx.message.server.id == "480248440148852757":
+    if ctx.message.server.id == "418001869781205002":
         if ctx.message.author.avatar_url:
             avatar = ctx.message.author.avatar_url
         else:
