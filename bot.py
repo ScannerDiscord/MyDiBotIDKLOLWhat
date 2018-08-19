@@ -47,14 +47,14 @@ async def battle(ctx , user : discord.Member = None):
         embed.add_field(name="Battle Details", value="**{}** - {} M3 , {} M3\n**{}** - {} M3 , {} M3".format(ctx.message.author.name
         ,rturr
         ,rhull
-        ,user.name
+        ,user.display_name
         ,mturr
         ,mhull), inline=False)
         embed.set_footer(text="Battle Starts in Few Seconds")
         x = await bot.send_message(chan ,embed=embed)
         await asyncio.sleep(5)
         embed=discord.Embed(title="Battle Log ")
-        embed.set_author(name="{} VS {}".format(ctx.message.author.name , user.name), icon_url="https://cdn.discordapp.com/attachments/433182340211146755/433485204925972480/Tanki-Online-Logo.png")
+        embed.set_author(name="{} VS {}".format(ctx.message.author.display_name , user.display_name), icon_url="https://cdn.discordapp.com/attachments/433182340211146755/433485204925972480/Tanki-Online-Logo.png")
         embed.set_thumbnail(url=scree)
         embed.add_field(name="Log..", value="{} Spawn\n{} Spawn\n{} Shoot {}\n{} Go {} Behind and Shoot Him\n{} Used Repair Kit\nFinally {} Did  {} Kills and Won !".format(team
         ,ctx.message.author.name
@@ -73,10 +73,10 @@ async def battle(ctx , user : discord.Member = None):
         embed.add_field(name="Turrents and Hulls" , value="**{}** - {} M3 , {} M3\n**{}** - {} M3  , {} M3".format(ctx.message.author.name,
         rturr,
         rhull,
-        user.name,
+        user.display_name,
         mturr,
         mhull), inline=True)
-        embed.set_footer(text="{} Won | Challenger {}".format(winner , ctx.message.author.name) , icon_url="https://cdn.discordapp.com/attachments/433182340211146755/433485204925972480/Tanki-Online-Logo.png")
+        embed.set_footer(text="{} Won | Challenger {}".format(winner , ctx.message.author.display_name) , icon_url="https://cdn.discordapp.com/attachments/433182340211146755/433485204925972480/Tanki-Online-Logo.png")
         x = await bot.edit_message(x ,embed=embed)
 
     
@@ -91,6 +91,7 @@ async def help (ctx):
     embed.set_author(name="EDGE Help ", icon_url="https://cdn.discordapp.com/avatars/480262781329997824/03b3668e0f2ff2f5cb4a5715ea2c986e.jpg?size=2048")
     embed.add_field(name="!suggest", value="Suggest a Idea You Have", inline=False)
     embed.add_field(name="!report", value="Report Kids That are Violating Rules", inline=True)
+    embed.add_field(name="!battle", value="Start a Battle With Your Firend !" , inline=False)    
     embed.add_field(name="!uptime", value="Check My Uptime" , inline=False)    
     embed.set_footer(text=ctx.message.server.name , icon_url=ctx.message.server.icon_url)
     await bot.say(embed=embed)
