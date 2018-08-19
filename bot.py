@@ -20,6 +20,65 @@ async def on_ready():
     print("Name: {}".format(bot.user.name))
     print("ID: {}".format(bot.user.id))
     await bot.change_presence(game=discord.Game(name="Professionals" , type=3))
+
+@bot.command(pass_context=True)
+async def battle(ctx , user : discord.Member = None):
+
+    team = random.choice([ctx.message.author.display_name , user.display_name])
+    team2 = random.choice([ctx.message.author.display_name , user.display_name])
+    team3 = random.choice([ctx.message.author.display_name , user.display_name])
+    chan = ctx.message.channel
+    rturr = random.choice(["Firebird" , "Freeze" , "Smoky" , "Hammer" , "Striker" ,"Thunder" , "Railgun" , "Shaft" , "Magnum" , "Terminator" ,"Railgun XT" ,"Terminator XT" ])
+    rhull = random.choice(["Titan" , "Viking" , "Hornet" , "Mammoth" , "Wasp" ,"Juggernaut"])
+    mturr = random.choice(["Firebird" , "Freeze" , "Smoky" , "Hammer" , "Striker" ,"Thunder" , "Railgun" , "Shaft" , "Magnum" , "Terminator" ])
+    scree = "https://cdn.discordapp.com/attachments/418001869781205004/480646580295172116/221587754554188_1084180384961583.png"
+    mhull = random.choice(["Titan" , "Viking" , "Hornet" , "Mammoth" , "Wasp" ,"Juggernaut"])
+    winner = random.choice([ctx.message.author.name , user.name])
+    if user is None:
+        await bot.say("<:Fail:461924435176325120> Mention a User to Start the Battle With ! ")
+    if user.id == bot.user.id:
+        await bot.say("Nope ! I Don't Want To Battle <:Fail:461924435176325120>")
+    if user.id ==  ctx.message.author.id:
+         await bot.say("<:Fail:461924435176325120>You Cannot Start the Battle Your Self")
+    else:
+        embed=discord.Embed(title="Battle Starts..", description="\n\n**Loading :<a:loading:438280917363195905>**\n\n")
+        embed.set_author(name="{} VS {}".format(ctx.message.author.name , user.name), icon_url="https://cdn.discordapp.com/avatars/445544179310002176/6843573388ba5ae8092b234c8b35bc2e.webp?size=1024")
+        embed.set_thumbnail(url=scree)
+        embed.add_field(name="Battle Details", value="**{}** - {} M3 , {} M3\n**{}** - {} M3 , {} M3".format(ctx.message.author.name
+        ,rturr
+        ,rhull
+        ,user.name
+        ,mturr
+        ,mhull), inline=False)
+        embed.set_footer(text="Battle Starts in Few Seconds")
+        x = await bot.send_message(chan ,embed=embed)
+        await asyncio.sleep(5)
+        embed=discord.Embed(title="Battle Log ")
+        embed.set_author(name="{} VS {}".format(ctx.message.author.name , user.name), icon_url="https://cdn.discordapp.com/attachments/433182340211146755/433485204925972480/Tanki-Online-Logo.png")
+        embed.set_thumbnail(url=scree)
+        embed.add_field(name="Log..", value="{} Spawn\n{} Spawn\n{} Shoot {}\n{} Go {} Behind and Shoot Him\n{} Used Repair Kit\nFinally {} Did  {} Kills and Won !".format(team
+        ,ctx.message.author.name
+        ,user.name
+        ,team
+        ,team3
+        ,team
+        ,team2
+        ,winner
+        ,random.randint(1,100)), inline=False)
+        embed.add_field(name="Winner", value=winner, inline=False)
+        embed.add_field(name="Rewards", value="{} - **{}** Crystals\n{} - **{}** Crystals".format(ctx.message.author.name
+        ,random.randint(1 , 100)
+        ,user.name
+        ,random.randint(2, 100)), inline=True)
+        embed.add_field(name="Turrents and Hulls" , value="**{}** - {} M3 , {} M3\n**{}** - {} M3  , {} M3".format(ctx.message.author.name,
+        rturr,
+        rhull,
+        user.name,
+        mturr,
+        mhull), inline=True)
+        embed.set_footer(text="{} Won | Challenger {}".format(winner , ctx.message.author.name) , icon_url="https://cdn.discordapp.com/attachments/433182340211146755/433485204925972480/Tanki-Online-Logo.png")
+        x = await bot.edit_message(x ,embed=embed)
+
     
 @bot.command(pass_context=True)
 async def wlc (ctx , user: discord.Member):
