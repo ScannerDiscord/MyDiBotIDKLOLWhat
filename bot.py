@@ -42,7 +42,7 @@ async def on_member_join(member):
 @bot.command(pass_context=True)
 async def uptime(ctx):
     embed=discord.Embed()
-    embed.add_field(name="Uptime", value=":clock10: **|** Providing Profesional **{0}** Hour(s) and **{1}** Minute(s) !".format(hour , minutes), inline=True)
+    embed.add_field(name="Uptime", value=":clock10: **|** **{0}** Hour(s) and **{1}** Minute(s) !".format(hour , minutes), inline=True)
     await bot.send_message(ctx.message.channel , embed=embed)
 
 
@@ -67,6 +67,7 @@ async def report(ctx, *args ):
         embed.add_field(name="Reason", value=args, inline=False)
         embed.set_footer(text=ctx.message.server.name,icon_url=ctx.message.server.icon_url)
         await bot.send_message(channel,embed=embed)
+        await bot.delete_message(ctx.message)
     else:
         return
 
@@ -89,6 +90,8 @@ async def suggest(ctx, *args ):
         embed.add_field(name="Suggestion", value=Sargs, inline=False)
         embed.set_footer(text=ctx.message.server.name,icon_url=ctx.message.server.icon_url)
         await bot.send_message(channel,embed=embed)
+        await bot.delete_message(ctx.message)
+
     else:
         return
 
