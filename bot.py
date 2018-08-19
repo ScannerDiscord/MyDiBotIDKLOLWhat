@@ -79,7 +79,7 @@ async def suggest(ctx, *args ):
         else:
             avatar = ctx.message.author.default.avatar_url
         
-        channel = bot.get_channel("480263813770379264")
+        channel = bot.get_channel("439368852057620480")
         await bot.send_message(ctx.message.author, "<:Pass:461924196390404106> | Your Sugesstion Was Sent to the Staff ! , Thanks For the Suggestion !")
         
         embed=discord.Embed(title="Information")
