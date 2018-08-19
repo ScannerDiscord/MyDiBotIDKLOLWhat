@@ -62,7 +62,6 @@ async def uptime(ctx):
     await bot.send_message(ctx.message.channel , embed=embed)
 
 
-bot.remove_command("help")
 
 
 @bot.command(pass_context=True)
