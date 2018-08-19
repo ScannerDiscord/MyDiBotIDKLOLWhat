@@ -12,6 +12,7 @@ hour = 0
 bot = discord.Client()
 bot_prefix= "!"
 bot = commands.Bot(command_prefix=bot_prefix)
+bot.remove_command("help")
 
 print("Logging...")
 @bot.event
