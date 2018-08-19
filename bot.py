@@ -41,7 +41,7 @@ async def battle(ctx , user : discord.Member = None):
     if user.id ==  ctx.message.author.id:
          await bot.say("<:Fail:461924435176325120>You Cannot Start the Battle Your Self")
     else:
-        embed=discord.Embed(title="Battle Starts..", description="\n\n**Loading :<a:loading:438280917363195905>**\n\n")
+        embed=discord.Embed(title="Battle Starts..", description="\n\n**Loading <a:loading:438280917363195905>**\n\n")
         embed.set_author(name="{} VS {}".format(ctx.message.author.name , user.name), icon_url="https://cdn.discordapp.com/avatars/445544179310002176/6843573388ba5ae8092b234c8b35bc2e.webp?size=1024")
         embed.set_thumbnail(url=scree)
         embed.add_field(name="Battle Details", value="**{}** - {} M3 , {} M3\n**{}** - {} M3 , {} M3".format(ctx.message.author.name
@@ -57,8 +57,8 @@ async def battle(ctx , user : discord.Member = None):
         embed.set_author(name="{} VS {}".format(ctx.message.author.display_name , user.display_name), icon_url="https://cdn.discordapp.com/attachments/433182340211146755/433485204925972480/Tanki-Online-Logo.png")
         embed.set_thumbnail(url=scree)
         embed.add_field(name="Log..", value="{} Spawn\n{} Spawn\n{} Shoot {}\n{} Go {} Behind and Shoot Him\n{} Used Repair Kit\nFinally {} Did  {} Kills and Won !".format(team
-        ,ctx.message.author.name
-        ,user.name
+        ,ctx.message.author.display_name
+        ,user.display_name
         ,team
         ,team3
         ,team
