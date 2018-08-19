@@ -41,7 +41,7 @@ async def battle(ctx , user : discord.Member = None):
     if user.id ==  ctx.message.author.id:
          await bot.say("<:Fail:461924435176325120>You Cannot Start the Battle Your Self")
     else:
-        embed=discord.Embed(title="Battle Starts..", description="\n\n**Loading <a:loading:438280917363195905>**\n\n")
+        embed=discord.Embed(title="Battle Starts..", description="\n\n**Loading <:verified:419067353545048064>**\n\n")
         embed.set_author(name="{} VS {}".format(ctx.message.author.name , user.name), icon_url="https://cdn.discordapp.com/avatars/445544179310002176/6843573388ba5ae8092b234c8b35bc2e.webp?size=1024")
         embed.set_thumbnail(url=scree)
         embed.add_field(name="Battle Details", value="**{}** - {} M3 , {} M3\n**{}** - {} M3 , {} M3".format(ctx.message.author.name
@@ -66,11 +66,11 @@ async def battle(ctx , user : discord.Member = None):
         ,winner
         ,random.randint(1,100)), inline=False)
         embed.add_field(name="Winner", value=winner, inline=False)
-        embed.add_field(name="Rewards", value="{} - **{}** Crystals\n{} - **{}** Crystals".format(ctx.message.author.name
+        embed.add_field(name="Rewards", value="{} - **{}** Crystals\n{} - **{}** Crystals".format(ctx.message.author.display_name
         ,random.randint(1 , 100)
-        ,user.name
+        ,user.display_name
         ,random.randint(2, 100)), inline=True)
-        embed.add_field(name="Turrents and Hulls" , value="**{}** - {} M3 , {} M3\n**{}** - {} M3  , {} M3".format(ctx.message.author.name,
+        embed.add_field(name="Turrents and Hulls" , value="**{}** - {} M3 , {} M3\n**{}** - {} M3  , {} M3".format(ctx.message.author.display_name,
         rturr,
         rhull,
         user.display_name,
