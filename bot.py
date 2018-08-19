@@ -29,9 +29,9 @@ async def wlc (ctx , user: discord.Member):
 async def help (ctx):
     embed=discord.Embed(title="I Know I am Helping You ")
     embed.set_author(name="EDGE Help ", icon_url="https://cdn.discordapp.com/avatars/480262781329997824/03b3668e0f2ff2f5cb4a5715ea2c986e.jpg?size=2048")
-    embed.add_field(name=!suggest, value=Suggest a Idea You Have, inline=False)
-    embed.add_field(name=!report, value=Report Kids That are Violating Rules, inline=True)
-    embed.add_field(name=!uptime, value=Check My Uptime , inline=False)    
+    embed.add_field(name="!suggest", value="Suggest a Idea You Have", inline=False)
+    embed.add_field(name="!report", value="Report Kids That are Violating Rules", inline=True)
+    embed.add_field(name="!uptime", value="Check My Uptime" , inline=False)    
     embed.set_footer(text=ctx.message.server.name , icon_url=ctx.message.server.icon_url)
     await bot.say(embed=embed)
                            
