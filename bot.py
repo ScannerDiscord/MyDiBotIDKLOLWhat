@@ -10,7 +10,7 @@ import os
 minutes = 0
 hour = 0
 bot = discord.Client()
-bot_prefix= "!"
+bot_prefix= "e!"
 bot = commands.Bot(command_prefix=bot_prefix)
 bot.remove_command("help")
 
@@ -27,6 +27,9 @@ async def wlc (ctx , user: discord.Member):
     await bot.send_message(user , "**Hello Welcome to Scanner's Server <:Pass:461924196390404106>**\n\nWe Are Trying to Bulid Up New Tanki Society to Play and Have Fun Thanks For Understanding the Value of If You Need Any Just Contact Scanner#4797  He Will Help You , Thank You ! (https://cdn.discordapp.com/attachments/376342591228084226/480637131979751424/sFFZsapvCHQ.png)")
     await bot.delete_message(ctx.message)
                   
+@bot.command(pass_context=True)
+async def refresh(ctx):
+    await bot.change_presence(game=discord.Game(name="e!help | {} Users".format(len(set(bot.get_all_members()))) , type=2))
 
                            
 @bot.event
