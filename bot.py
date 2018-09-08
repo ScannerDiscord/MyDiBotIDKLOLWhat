@@ -36,20 +36,25 @@ async def refresh(ctx):
 async def on_member_join(member):
     server = member.server
     if server.id == "418001869781205002":
-        if member.avatar_url:
-            memberavatar = member.avatar_url
-        else:
-            memberavatar = member.default_avatar_url
-        
-        channel = bot.get_channel("418001869781205004")
+        channel = bot.get_channel("486056709974917139")
         server = member.server
         msg = "**:tada: Welcome to {} {} , You are the {} User!**".format(member.server.name, member.mention, len(server.members))
-        
-        embed=discord.Embed(title="New User ", description="\n\n{}\n\n".format(msg))
-        embed.set_author(name="Welcome!", icon_url=memberavatar)
-        embed.set_footer(text=server.name , icon_url=server.icon_url)
-        await bot.send_message(channel, embed=embed)
-        
+        await bot.send_message(channel, msg)
+    else:
+        return
+ 
+@bot.event
+async def on_member_remove(member):
+    server = member.server
+    if server.id == "418001869781205002":
+        channel = bot.get_channel("486056709974917139")
+        server = member.server
+        msg = "**:wave: {} Just Left Us , Hope You See Soon!**".format(member)
+        await bot.send_message(channel, msg)
+    else:
+        return
+
+
 @bot.command(pass_context=True)
 async def uptime(ctx):
     embed=discord.Embed()
