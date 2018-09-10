@@ -1,0 +1,4 @@
+discord.py
+ujson
+fortnite_python
+requests
