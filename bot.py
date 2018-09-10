@@ -9,7 +9,6 @@ import asyncio
 import os
 import io
 
-startup_extensions = ["cogs.fun", "cogs.botinfo" , "cogs.owner" , "cogs.other" , "cogs.tanki" , "cogs.help" , "cogs.fortratings" , "cogs.mod"]
 
 prefix = "e!"
 bot = discord.Client()
@@ -69,7 +68,7 @@ async def ping(ctx):
 async def on_ready():
     print("Name: {}".format(bot.user.name))
     print("ID: {}".format(bot.user.id))
-    await bot.change_presence(game=discord.Game(name="e!help | {} Users ".format(len(set(bot.get_all_members()))),type=2))
+    await bot.change_presence(game=discord.Game(name="Scanner's Server".format(len(set(bot.get_all_members()))),type=3))
 
 
 @bot.command(pass_context=True)
@@ -78,45 +77,6 @@ async def uptime(ctx):
     embed.add_field(name="EDGE Uptime.. :clock10:", value="Online For **|** **{0}** Days **{1}** Hour(s) and **{2}** Minute(s) !".format(days , hour , minutes), inline=True)
     await bot.send_message(ctx.message.channel , embed=embed)
 
-@bot.command(pass_context=True)
-async def load(ctx , *args):
-    extension_name = ' '.join(args)
-    if ctx.message.author.id == "429118689367949322":
-        try:
-            bot.load_extension(extension_name)
-        except (AttributeError, ImportError) as e:
-            await bot.say("```py\n{}: {}\n```".format(type(e).__name__, str(e)))
-            return
-        embed=discord.Embed()
-        embed.add_field(name="Loaded", value="{} Has Loaded".format(extension_name), inline=False)
-        await bot.say(embed=embed)
-    else:
-        return
-
-@bot.command(pass_context=True)
-async def reload(ctx , *args):
-    extension_name = ' '.join(args)
-    if ctx.message.author.id == "429118689367949322":
-        bot.unload_extension(extension_name)
-        bot.load_extension(extension_name)
-
-        embed=discord.Embed()
-        embed.add_field(name="Reloaded", value="{} Has Reloaded.".format(extension_name), inline=False)
-        await bot.say(embed=embed)
-    else:
-        return
-
-@bot.command(pass_context=True)
-async def unload(ctx , *args):
-    extension_name = ' '.join(args)
-    if ctx.message.author.id=="429118689367949322":
-        bot.unload_extension(extension_name)
-
-        embed=discord.Embed()
-        embed.add_field(name="Unloaded", value="{} Has Unloaded".format(extension_name), inline=False)
-        await bot.say(embed=embed)
-    else:
-        return
 
 async def tutorial_uptime():
     await bot.wait_until_ready()
