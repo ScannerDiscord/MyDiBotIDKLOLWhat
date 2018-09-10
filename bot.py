@@ -29,12 +29,8 @@ async def on_member_join(member):
         server = member.server
         msg = "**:tada: Welcome to {} {} , You are the {} User!**".format(member.server.name, member.mention, len(server.members))
         await bot.send_message(channel, msg)
-
     else:
         return
-
- 
-
 @bot.event
 async def on_member_remove(member):
     server = member.server
@@ -46,7 +42,6 @@ async def on_member_remove(member):
 
     else:
         return
-
 
 
 @bot.event
@@ -74,6 +69,8 @@ async def ping(ctx):
 async def on_ready():
     print("Name: {}".format(bot.user.name))
     print("ID: {}".format(bot.user.id))
+    await bot.change_presence(game=discord.Game(name="e!help | {} Users ".format(len(set(bot.get_all_members()))),type=2))
+
 
 @bot.command(pass_context=True)
 async def uptime(ctx):
