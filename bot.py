@@ -44,7 +44,6 @@ async def help(ctx):
     embed.add_field(name="s!exp", value="Get How Much Expirence Required to rank up! `s!exp [name]`", inline=False)
     embed.add_field(name="s!container", value="Open a Container", inline=False)
     embed.add_field(name="s!say", value="Say Something `e!say [words]`", inline=False)
-    embed.add_field(name="s!serverad", value="Get Scanner's Server Advertisment", inline=True)
     embed.set_footer(text=ctx.message.server.name,icon_url=ctx.message.author.avatar_url)
     embed.timestamp = datetime.datetime.utcnow()
     await bot.send_message(ctx.message.author,embed=embed)
