@@ -25,7 +25,7 @@ use = 0
 @bot.command(pass_context = True)
 async def help(ctx):
     embed=discord.Embed(title="Help!")
-    embed.set_author(name="Scanner - ONLY For Scanner's Server", icon_url="https://discord.gg/mu8R5W7 ")
+    embed.set_author(name="Help & Support", icon_url="https://cdn.discordapp.com/avatars/439579661245218816/dc56306745439b0babaa7e718daf477e.webp?size=1024")
     embed.add_field(name="s!avatar", value="Sends a Avatar Of a User `s!avatar [user]`", inline=False)
     embed.add_field(name="s!status", value="Check Scanner's Server Status", inline=False)
     embed.add_field(name="s!afk", value="Inform that Your AFK `e!afk [reason]`", inline=False)
