@@ -18,10 +18,6 @@ hour = 0
 days = 0
 use = 0
 
-
-
-
-
 @bot.command(pass_context = True)
 async def help(ctx):
     embed=discord.Embed(title="Help!")
@@ -548,6 +544,7 @@ async def ratings(ctx, user: str=None ):
                     exp = response["score"]
                     pre = response["hasPremium"]
                     name = response["name"]
+                    gScore = response["gearScore"]
 
                     if user is None:
                         embed=discord.Embed()
@@ -626,6 +623,7 @@ async def ratings(ctx, user: str=None ):
                     embed.add_field(name="Kills", value="{:,}".format(kills), inline=True)
                     embed.add_field(name="Deaths", value="{:,}".format(deaths), inline=True)
                     embed.add_field(name="K/D", value="{0:.2f}".format(kills/deaths), inline=True)
+                    embed.add_field(name="Gear Score", value="{:,}".format(gScore), inline=True)
                     embed.add_field(name="Crystals Obtained", value="{:,}".format(crystals), inline=True)
                     embed.add_field(name="Gold Boxes Caught", value="{:,}".format(gold), inline=True)
                     embed.timestamp = datetime.datetime.utcnow()
