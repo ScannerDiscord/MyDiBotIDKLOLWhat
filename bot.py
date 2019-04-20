@@ -297,7 +297,7 @@ async def ping(ctx):
 async def on_ready():
     print("Name: {}".format(bot.user.name))
     print("ID: {}".format(bot.user.id))
-    await bot.change_presence(game=discord.Game(name="the AnimatedStick",type=3))
+    await bot.change_presence(activity=discord.Game(name="the AnimatedStick",type=3))
 
 @bot.command(pass_context=True)
 async def suggest(ctx , *args):
