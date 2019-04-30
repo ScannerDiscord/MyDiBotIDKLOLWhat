@@ -1,2 +1,2 @@
-# MyDiBotIDKLOLWhat
-A Bot
+# Scanner Discord
+Discord Bot Made For Tanki Online !!
